@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>toyc</AssemblyName>
+    <Authors>Dunn</Authors>
+    <Company>ToyLang</Company>
+    <Product>ToyCompiler</Product>
+    <Version>0.0.1</Version>
+  </PropertyGroup>
+
+</Project>
