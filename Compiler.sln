@@ -7,11 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AD164201-DD0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EEF8FF98-ED28-483B-976D-AF3C43328686}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toy.Compiler", "src\Toy.Compiler\Toy.Compiler.csproj", "{221E5C9E-4029-4C97-AC1B-8F00ABBCBE6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toy.Compiler", "src\Toy.Compiler\Toy.Compiler.csproj", "{221E5C9E-4029-4C97-AC1B-8F00ABBCBE6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toy.Compiler.Lexer", "src\Toy.Compiler.Lexer\Toy.Compiler.Lexer.csproj", "{5FA54F66-36D7-46EA-A218-3A77F65A6F64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toy.Compiler.Lexer", "src\Toy.Compiler.Lexer\Toy.Compiler.Lexer.csproj", "{5FA54F66-36D7-46EA-A218-3A77F65A6F64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toy.Compiler.Parser", "src\Toy.Compiler.Parser\Toy.Compiler.Parser.csproj", "{A2768436-6C49-44C0-A21D-8CE5A925BB89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toy.Compiler.Parser", "src\Toy.Compiler.Parser\Toy.Compiler.Parser.csproj", "{A2768436-6C49-44C0-A21D-8CE5A925BB89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
