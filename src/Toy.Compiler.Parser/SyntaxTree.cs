@@ -7,6 +7,7 @@ namespace Toy.Compiler.Parser
         public void ParseText(string text)
         {
             var lexer = new LexicalAnalyzer(text);
+            var parser = new SyntaxParser(lexer);
         }
     }
 }
