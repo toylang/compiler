@@ -54,7 +54,7 @@
         UsingKeyword,
         VarKeyword,
         VoidKeyword,
-        WhileKeyword
+        WhileKeyword,
         #endregion
 
         #region  Contextual keywords
