@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toy.Compiler.Lexer", "src\T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Toy.Compiler.Parser", "src\Toy.Compiler.Parser\Toy.Compiler.Parser.csproj", "{A2768436-6C49-44C0-A21D-8CE5A925BB89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toy.Compiler.UnitTest", "test\Toy.Compiler.UnitTest\Toy.Compiler.UnitTest.csproj", "{8DC408AC-BE70-4F8D-B8D3-A525183FE0AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{A2768436-6C49-44C0-A21D-8CE5A925BB89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2768436-6C49-44C0-A21D-8CE5A925BB89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2768436-6C49-44C0-A21D-8CE5A925BB89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC408AC-BE70-4F8D-B8D3-A525183FE0AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC408AC-BE70-4F8D-B8D3-A525183FE0AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC408AC-BE70-4F8D-B8D3-A525183FE0AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC408AC-BE70-4F8D-B8D3-A525183FE0AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{221E5C9E-4029-4C97-AC1B-8F00ABBCBE6F} = {AD164201-DD0F-48C3-84D2-7661C93B3E81}
 		{5FA54F66-36D7-46EA-A218-3A77F65A6F64} = {AD164201-DD0F-48C3-84D2-7661C93B3E81}
 		{A2768436-6C49-44C0-A21D-8CE5A925BB89} = {AD164201-DD0F-48C3-84D2-7661C93B3E81}
+		{8DC408AC-BE70-4F8D-B8D3-A525183FE0AF} = {EEF8FF98-ED28-483B-976D-AF3C43328686}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {225F63D5-10E4-4C7F-A094-0C6F2128414D}
