@@ -18,16 +18,27 @@ namespace Toy.Compiler.Lexer
             Offset = 0;
         }
 
+        public int Offset { get; private set; }
         private const int DefaultWindowLength = 2048;
         private int lexemeStart;
         private int basis;
         private readonly int textEnd;
         private readonly string text;
-        public int Offset { get; private set; }
+        private char[] characterWindow = new char[DefaultWindowLength];
 
         public void Start()
         {
             lexemeStart = Offset;
+        }
+
+        public char PeekChar()
+        {
+            return characterWindow[Offset];
+        }
+
+        public void AdvanceChar()
+        {
+            Offset++;
         }
     }
 }
