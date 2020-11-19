@@ -120,7 +120,7 @@
         /// <summary>Represents <c>/</c> token.</summary>
         SlashToken,
         /// <summary>Represents <c>~</c> token.</summary>
-        TildeToken
+        TildeToken,
 
         #endregion
 
@@ -128,5 +128,17 @@
 
         #endregion
 
+        #region Text
+
+        CharacterLiteralToken,
+        StringLiteralToken,
+
+        #endregion
+
+        #region Other
+
+        EndOfFileToken,
+
+        #endregion
     }
 }

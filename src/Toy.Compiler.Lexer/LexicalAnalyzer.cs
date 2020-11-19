@@ -23,16 +23,16 @@ namespace Toy.Compiler.Lexer
             errors = null;
         }
 
-        private void ScanSyntaxToken()
+        private void ScanSyntaxToken(TokenInfo info)
         {
-            var info = new TokenInfo();
             var character = TextWindow.PeekChar();
             switch (character)
             {
-                case '\"':
+                case '"':
                 case '\'':
-                    // TODO: Scan string literal
+                    this.ScanStringLiteral(info);
                     break;
+                #region Punctuation
 
                 case '&':
                     TextWindow.AdvanceChar();
@@ -138,7 +138,131 @@ namespace Toy.Compiler.Lexer
                     TextWindow.AdvanceChar();
                     info.Kind = SyntaxKind.TildeToken;
                     break;
+
+                #endregion
+
+                #region Identifier and Keyword
+
+                case 'a':
+                case 'b':
+                case 'c':
+                case 'd':
+                case 'e':
+                case 'f':
+                case 'g':
+                case 'h':
+                case 'i':
+                case 'j':
+                case 'k':
+                case 'l':
+                case 'm':
+                case 'n':
+                case 'o':
+                case 'p':
+                case 'q':
+                case 'r':
+                case 's':
+                case 't':
+                case 'u':
+                case 'v':
+                case 'w':
+                case 'x':
+                case 'y':
+                case 'z':
+                case 'A':
+                case 'B':
+                case 'C':
+                case 'D':
+                case 'E':
+                case 'F':
+                case 'G':
+                case 'H':
+                case 'I':
+                case 'J':
+                case 'K':
+                case 'L':
+                case 'M':
+                case 'N':
+                case 'O':
+                case 'P':
+                case 'Q':
+                case 'R':
+                case 'S':
+                case 'T':
+                case 'U':
+                case 'V':
+                case 'W':
+                case 'X':
+                case 'Y':
+                case 'Z':
+                case '_':
+                    ScanIdentifierOrKeyword(info);
+                    break;
+
+                #endregion
+
+                #region Numeric
+
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    ScanNumericLiteral(info);
+                    break;
+
+                    #endregion
             }
+        }
+
+        private void ScanStringLiteral(TokenInfo info)
+        {
+            var sb = new StringBuilder();
+            var quoteCharacter = TextWindow.PeekChar();
+            TextWindow.AdvanceChar();
+
+            while (true)
+            {
+                var ch = TextWindow.PeekChar();
+                if (ch == quoteCharacter)
+                {
+                    TextWindow.AdvanceChar();
+                    break;
+                }
+                else if (ch == '\\')
+                {
+                    // TODO: Scan escape sequence
+                }
+                else
+                {
+                    TextWindow.AdvanceChar();
+                    sb.Append(ch);
+                }
+            }
+
+            if (quoteCharacter == '\'')
+            {
+                info.Kind = SyntaxKind.CharacterLiteralToken;
+            }
+            else
+            {
+                info.Kind = SyntaxKind.StringLiteralToken;
+            }
+        }
+
+        private void ScanIdentifierOrKeyword(TokenInfo info)
+        {
+
+        }
+
+        private void ScanNumericLiteral(TokenInfo info)
+        {
+
         }
     }
 }
