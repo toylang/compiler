@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Toy.Compiler.Lexer
 {
@@ -236,7 +234,8 @@ namespace Toy.Compiler.Lexer
                 }
                 else if (ch == '\\')
                 {
-                    // TODO: Scan escape sequence
+                    ch = ScanEscapeSequence();
+                    sb.Append(ch);
                 }
                 else
                 {
@@ -248,10 +247,12 @@ namespace Toy.Compiler.Lexer
             if (quoteCharacter == '\'')
             {
                 info.Kind = SyntaxKind.CharacterLiteralToken;
+                info.CharValue = sb[0];
             }
             else
             {
                 info.Kind = SyntaxKind.StringLiteralToken;
+                info.StringValue = sb.ToString();
             }
         }
 
@@ -263,6 +264,48 @@ namespace Toy.Compiler.Lexer
         private void ScanNumericLiteral(TokenInfo info)
         {
 
+        }
+
+        private char ScanEscapeSequence()
+        {
+            var start = TextWindow.Position;
+            TextWindow.AdvanceChar();
+            var ch = TextWindow.PeekChar();
+            switch (ch)
+            {
+                case '\'':
+                case '\"':
+                case '\\':
+                    break;
+                case 'a':
+                    ch = '\u0007';
+                    break;
+                case 'b':
+                    ch = '\u0008';
+                    break;
+                case 'f':
+                    ch = '\u000c';
+                    break;
+                case 'n':
+                    ch = '\u000a';
+                    break;
+                case 'r':
+                    ch = '\u000d';
+                    break;
+                case 't':
+                    ch = '\u0009';
+                    break;
+                case 'v':
+                    ch = '\u000b';
+                    break;
+                case '0':
+                    ch = '\u0000';
+                    break;
+                default:
+                    throw new Exception();
+            }
+
+            return ch;
         }
     }
 }

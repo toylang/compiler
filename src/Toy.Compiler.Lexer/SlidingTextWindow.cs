@@ -40,5 +40,25 @@ namespace Toy.Compiler.Lexer
         {
             Offset++;
         }
+
+        /// <summary>
+        /// The absolute position of the start of the current lexeme in the given
+        /// SourceText.
+        /// </summary>
+        public int LexemeStartPosition
+        {
+            get
+            {
+                return basis + lexemeStart;
+            }
+        }
+
+        public int Position
+        {
+            get
+            {
+                return basis + Offset;
+            }
+        }
     }
 }
