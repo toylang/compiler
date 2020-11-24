@@ -6,8 +6,6 @@ namespace Toy.Compiler.Lexer
         public string StringValue { get; set; }
         public char CharValue { get; set; }
         public int IntValue { get; set; }
-        public long LongValue { get; set; }
         public float FloatValue { get; set; }
-        public double DoubleValue { get; set; }
     }
 }

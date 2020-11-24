@@ -9,9 +9,11 @@ namespace Toy.Compiler.Lexer
         public LexicalAnalyzer(string text)
         {
             TextWindow = new SlidingTextWindow(text);
+            builder = new StringBuilder();
         }
 
         private List<Exception> errors;
+        private readonly StringBuilder builder;
         public SlidingTextWindow TextWindow { get; private set; }
         public bool HasErrors { get { return errors != null; } }
 
@@ -220,7 +222,7 @@ namespace Toy.Compiler.Lexer
 
         private void ScanStringLiteral(TokenInfo info)
         {
-            var sb = new StringBuilder();
+            builder.Clear();
             var quoteCharacter = TextWindow.PeekChar();
             TextWindow.AdvanceChar();
 
@@ -235,24 +237,24 @@ namespace Toy.Compiler.Lexer
                 else if (ch == '\\')
                 {
                     ch = ScanEscapeSequence();
-                    sb.Append(ch);
+                    builder.Append(ch);
                 }
                 else
                 {
                     TextWindow.AdvanceChar();
-                    sb.Append(ch);
+                    builder.Append(ch);
                 }
             }
 
             if (quoteCharacter == '\'')
             {
                 info.Kind = SyntaxKind.CharacterLiteralToken;
-                info.CharValue = sb[0];
+                info.CharValue = builder[0];
             }
             else
             {
                 info.Kind = SyntaxKind.StringLiteralToken;
-                info.StringValue = sb.ToString();
+                info.StringValue = builder.ToString();
             }
         }
 
@@ -263,7 +265,20 @@ namespace Toy.Compiler.Lexer
 
         private void ScanNumericLiteral(TokenInfo info)
         {
+            builder.Clear();
 
+            while (true)
+            {
+                var ch = TextWindow.PeekChar();
+                if (!(ch >= '0' && ch <= '9'))
+                {
+                    break;
+                }
+                TextWindow.AdvanceChar();
+                builder.Append(ch);
+            }
+            info.IntValue = Int32.Parse(builder.ToString());
+            info.Kind = SyntaxKind.NumericLiteralToken;
         }
 
         private char ScanEscapeSequence()
